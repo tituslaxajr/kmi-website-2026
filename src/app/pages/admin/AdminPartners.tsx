@@ -204,7 +204,7 @@ export function AdminPartners() {
           {filtered.map((partner) => (
             <div key={partner.id} className="bg-white rounded-2xl border border-mist/25 p-5 flex items-center gap-5 hover:border-mist/40 hover:shadow-md hover:shadow-covenant-navy/[0.02] transition-all duration-300">
               {partner.image ? (
-                <img src={partner.image} alt="" className="w-14 h-14 rounded-xl object-cover shrink-0" />
+                <img src={partner.image} alt={partner.name || 'Partner photo'} className="w-14 h-14 rounded-xl object-cover shrink-0" />
               ) : (
                 <div className="w-14 h-14 rounded-xl bg-field-sand/60 flex items-center justify-center shrink-0">
                   <Users size={18} className="text-slate-text/30" />

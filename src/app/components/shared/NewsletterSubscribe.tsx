@@ -137,6 +137,7 @@ export function NewsletterSubscribe({ variant = "inline" }: NewsletterSubscribeP
               if (status === "error") setStatus("idle");
             }}
             placeholder="your@email.com"
+            aria-label="Email address for newsletter"
             required
             className="flex-1 min-w-0 px-3.5 py-2.5 rounded-lg bg-white/5 text-white placeholder:text-white/20 focus:outline-none focus:ring-1 focus:ring-harvest-gold/40 border border-white/8 focus:border-harvest-gold/30 transition-all"
             style={{ fontSize: "0.8125rem" }}

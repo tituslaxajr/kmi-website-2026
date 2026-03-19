@@ -129,7 +129,7 @@ export function AdminStories() {
               {story.featured_image ? (
                 <img
                   src={story.featured_image}
-                  alt=""
+                  alt={story.title || 'Story image'}
                   className="w-full sm:w-14 h-32 sm:h-14 rounded-xl object-cover shrink-0"
                 />
               ) : (

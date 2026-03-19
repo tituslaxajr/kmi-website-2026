@@ -484,7 +484,7 @@ export function AdminMinistries() {
               className="bg-white rounded-2xl border border-mist/25 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5 hover:border-mist/40 hover:shadow-md hover:shadow-covenant-navy/[0.02] transition-all duration-300"
             >
               {ministry.cardImage ? (
-                <img src={ministry.cardImage} alt="" className="w-full sm:w-14 h-32 sm:h-14 rounded-xl object-cover shrink-0" />
+                <img src={ministry.cardImage} alt={ministry.name || 'Ministry image'} className="w-full sm:w-14 h-32 sm:h-14 rounded-xl object-cover shrink-0" />
               ) : (
                 <div className="w-full sm:w-14 h-32 sm:h-14 rounded-xl bg-field-sand/60 flex items-center justify-center shrink-0">
                   <HeartHandshake size={18} className="text-slate-text/30" />

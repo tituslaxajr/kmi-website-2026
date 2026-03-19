@@ -169,7 +169,7 @@ export function AdminMedia() {
               <div key={item.id} className="bg-white rounded-2xl border border-mist/25 overflow-hidden hover:border-mist/40 hover:shadow-md hover:shadow-covenant-navy/[0.02] transition-all duration-300 group">
                 <div className="relative aspect-video">
                   {item.thumbnail ? (
-                    <img src={item.thumbnail} alt="" className="w-full h-full object-cover" />
+                    <img src={item.thumbnail} alt={item.title || item.type || 'Media thumbnail'} className="w-full h-full object-cover" />
                   ) : (
                     <div className="w-full h-full bg-field-sand/60 flex items-center justify-center">
                       <Play size={28} className="text-slate-text/20" />

@@ -19,10 +19,17 @@ export function Footer() {
               Founded in 2003 by Titus and Beth Laxa, partnering with local churches to transform communities through the Gospel across the Philippines.
             </p>
             <div className="flex items-center gap-2.5 mt-5">
-              {[Facebook, Instagram, Youtube].map((Icon, i) => (
+              {[
+                { Icon: Facebook, href: "https://www.facebook.com/kapatidministry", label: "Facebook" },
+                { Icon: Instagram, href: "https://www.instagram.com/kapatidministry", label: "Instagram" },
+                { Icon: Youtube, href: "https://www.youtube.com/@kapatidministry", label: "YouTube" },
+              ].map(({ Icon, href, label }) => (
                 <a
-                  key={i}
-                  href="#"
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Kapatid Ministry on ${label}`}
                   className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white/40 hover:bg-harvest-gold/15 hover:text-harvest-gold transition-all duration-300"
                 >
                   <Icon size={14} strokeWidth={2} />

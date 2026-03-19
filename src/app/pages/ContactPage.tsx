@@ -12,6 +12,7 @@ import { submitContact } from "../lib/api";
 export function ContactPage() {
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const IMAGES = useImages();
 
@@ -21,9 +22,10 @@ export function ContactPage() {
     try {
       await submitContact(formData);
       setSubmitted(true);
+      setSubmitError(null);
     } catch (err) {
       console.error("Contact form error:", err);
-      setSubmitted(true);
+      setSubmitError("Something went wrong. Please try again or email us directly.");
     } finally {
       setSubmitting(false);
     }
@@ -139,6 +141,9 @@ export function ContactPage() {
                         style={{ fontSize: "0.9375rem" }}
                       />
                     </div>
+                    {submitError && (
+                      <p className="text-mission-red text-sm">{submitError}</p>
+                    )}
                     <Button type="submit" size="lg" disabled={submitting}>
                       {submitting ? (
                         <>

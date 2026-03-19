@@ -428,7 +428,7 @@ export function AdminTeam() {
                       {member.image ? (
                         <img
                           src={member.image}
-                          alt=""
+                          alt={member.name || 'Team member photo'}
                           className="w-14 h-14 rounded-xl object-cover shrink-0"
                         />
                       ) : (
