@@ -31,8 +31,26 @@ export function NotFoundPage() {
         </div>
         <h2 className="text-covenant-navy -mt-6 mb-3">Page Not Found</h2>
         <p className="text-slate-text max-w-md mx-auto mb-8" style={{ fontSize: "1.0625rem", lineHeight: "1.625rem" }}>
-          This page doesn't exist. Let's get you back on track.
+          This page doesn't exist. Here are some places to explore:
         </p>
+        <div className="flex flex-wrap justify-center gap-3 mb-8">
+          {[
+            { label: "Ministries", href: "/ministries" },
+            { label: "Stories", href: "/stories" },
+            { label: "Partners", href: "/partners" },
+            { label: "Give", href: "/give" },
+            { label: "Contact", href: "/contact" },
+          ].map(({ label, href }) => (
+            <Link
+              key={href}
+              href={href}
+              className="px-4 py-2 rounded-xl border border-mist/40 text-slate-text hover:border-harvest-gold/40 hover:text-covenant-navy transition-all duration-200"
+              style={{ fontSize: "0.875rem", fontWeight: 500 }}
+            >
+              {label}
+            </Link>
+          ))}
+        </div>
         <Link href="/">
           <Button>
             Return Home <ArrowRight size={16} />

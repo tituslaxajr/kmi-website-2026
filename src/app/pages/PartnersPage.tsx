@@ -9,9 +9,10 @@ import { ScriptureBlock } from "../components/shared/ScriptureBlock";
 import { PartnerCard } from "../components/shared/PartnerCard";
 import { CTABanner } from "../components/shared/CTABanner";
 import { SectionHeader } from "../components/shared/SectionHeader";
+import { PartnerCardSkeleton } from "../components/shared/Skeleton";
 
 export function PartnersPage() {
-  const { partners } = usePartners();
+  const { partners, loading } = usePartners();
   const IMAGES = useImages();
   return (
     <div>
@@ -93,9 +94,11 @@ export function PartnersPage() {
             subtitle="Each partnership is built on trust, prayer, and a shared commitment to transformation."
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {partners.map((partner, i) => (
-              <PartnerCard key={partner.id} partner={partner} index={i} />
-            ))}
+            {loading
+              ? Array.from({ length: 8 }).map((_, i) => <PartnerCardSkeleton key={i} />)
+              : partners.map((partner, i) => (
+                  <PartnerCard key={partner.id} partner={partner} index={i} />
+                ))}
           </div>
         </div>
       </section>

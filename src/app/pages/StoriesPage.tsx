@@ -9,13 +9,14 @@ import { ScriptureBlock } from "../components/shared/ScriptureBlock";
 import { StoryCard } from "../components/shared/StoryCard";
 import { FilterPill } from "../components/shared/FilterPill";
 import { CTABanner } from "../components/shared/CTABanner";
+import { StoryCardSkeleton } from "../components/shared/Skeleton";
 
 const categories = ["All", "Community", "Education", "Relief", "Church", "Testimony"];
 
 export function StoriesPage() {
   const [activeFilter, setActiveFilter] = useState("All");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
-  const { stories } = useStories();
+  const { stories, loading } = useStories();
   const IMAGES = useImages();
   const filtered = activeFilter === "All" ? stories : stories.filter((s) => s.category === activeFilter);
   const featuredStory = filtered[0];
@@ -120,6 +121,10 @@ export function StoriesPage() {
                   View all stories
                 </button>
               </motion.div>
+            ) : loading ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+                {Array.from({ length: 6 }).map((_, i) => <StoryCardSkeleton key={i} />)}
+              </div>
             ) : viewMode === "grid" ? (
               <motion.div
                 key={`grid-${activeFilter}`}
