@@ -35,6 +35,10 @@
     ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/app/App.tsx",
+    "src/app/routes.ts",
+    "src/main.tsx",
+    "vite.config.ts"
   ]
 }
