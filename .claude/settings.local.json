@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(where python:*)",
+      "Bash(where python3:*)",
+      "Bash(where py:*)",
+      "Bash(where npm:*)",
+      "Bash(npm install:*)",
+      "Bash(command -v npm)",
+      "Bash(find 'C:\\\\Users\\\\huawei notebook\\\\Downloads\\\\KMI Website 2026 - v2/src' -type f \\\\\\(-name *.tsx -o -name *.ts -o -name *.env* -o -name *.json \\\\\\))",
+      "Bash(grep -E \"\\\\.tsx$\")",
+      "Bash(find 'C:\\\\Users\\\\huawei notebook\\\\Downloads\\\\KMI Website 2026 - v2' -maxdepth 2 -type f \\\\\\(-name .env* -o -name vite.config.* -o -name tailwind.config.* \\\\\\))",
+      "Bash(find 'C:\\\\Users\\\\huawei notebook\\\\Downloads\\\\KMI Website 2026 - v2' -maxdepth 3 -path */utils/supabase/* -type f)",
+      "Bash(mkdir -p \"C:\\\\Users\\\\huawei notebook\\\\Downloads\\\\KMI Website 2026 - v2\\\\app\\\\\\(public\\)\\\\ministries\\\\[slug]\")",
+      "Bash(mkdir -p \"C:\\\\Users\\\\huawei notebook\\\\Downloads\\\\KMI Website 2026 - v2\\\\app\\\\\\(public\\)\\\\stories\\\\[slug]\")",
+      "Bash(mkdir -p \"C:\\\\Users\\\\huawei notebook\\\\Downloads\\\\KMI Website 2026 - v2\\\\app\\\\\\(public\\)\\\\partners\\\\[id]\")",
+      "Bash(mkdir -p \"C:\\\\Users\\\\huawei notebook\\\\Downloads\\\\KMI Website 2026 - v2\\\\app\\\\admin\\\\stories\\\\edit\\\\[id]\")",
+      "Bash(node -e \":*)",
+      "Bash(node -e \"const fs=require\\(''fs''\\),path=require\\(''path''\\);function g\\(d\\){const e=fs.readdirSync\\(d,{withFileTypes:true}\\),f=[];for\\(const x of e\\){const p=path.join\\(d,x.name\\);if\\(x.isDirectory\\(\\)\\)f.push\\(...g\\(p\\)\\);else if\\(x.name.endsWith\\(''.tsx''\\)||x.name.endsWith\\(''.ts''\\)\\)f.push\\(p\\);}return f;}const dirs=[''src/app/pages'',''src/app/components'',''src/app/context'',''src/app/hooks''];for\\(const d of dirs\\){for\\(const f of g\\(d\\)\\){const c=fs.readFileSync\\(f,''utf8''\\);if\\(c.includes\\(''use client''\\)\\)continue;if\\(c.match\\(/useState|useEffect|useRef|useCallback|useMemo|useContext|useReducer|createContext|window[.]/\\)\\){console.log\\(''NEEDS:'',f\\);}}};\")",
+      "Bash(dir /b \"C:\\\\Users\\\\huawei notebook\\\\Downloads\\\\KMI Website 2026 - v2\"\")"
+    ]
+  }
+}

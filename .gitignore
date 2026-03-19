@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Environment variables (keep secrets out of GitHub)
+.env.local
+.env*.local
+
+# Build outputs
+dist/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*

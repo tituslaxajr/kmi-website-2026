@@ -1,0 +1,244 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-serif: 'Inter', sans-serif;
+  --background: #FAF8F4;
+  --foreground: #1E1E1E;
+  --card: #FAF8F4;
+  --card-foreground: #1E1E1E;
+  --popover: #FAF8F4;
+  --popover-foreground: #1E1E1E;
+  --primary: #103B53;
+  --primary-foreground: #FAF8F4;
+  --secondary: #F1ECE3;
+  --secondary-foreground: #103B53;
+  --muted: #E5DFD6;
+  --muted-foreground: #5F6368;
+  --accent: #C84C3D;
+  --accent-foreground: #ffffff;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(16, 59, 83, 0.08);
+  --input: transparent;
+  --input-background: #F1ECE3;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #D89B3C;
+
+  /* Kapatid Design System Colors */
+  --mission-red: #C84C3D;
+  --covenant-navy: #103B53;
+  --field-sand: #F1ECE3;
+  --light-linen: #FAF8F4;
+  --harvest-gold: #D89B3C;
+  --ink: #1E1E1E;
+  --slate-text: #5F6368;
+  --mist: #E5DFD6;
+
+  /* Legacy aliases for backward compat */
+  --gold: #D89B3C;
+  --dust-blue: #6E8A8F;
+  --clay: #A65C3A;
+  --warm-sand: #F1ECE3;
+  --off-white: #FAF8F4;
+  --deep-forest: #103B53;
+  --olive: #1a5a7a;
+  --charcoal: #1E1E1E;
+  --warm-gray: #5F6368;
+  --soft-gray: #E5DFD6;
+
+  --chart-1: #D89B3C;
+  --chart-2: #103B53;
+  --chart-3: #C84C3D;
+  --chart-4: #6E8A8F;
+  --chart-5: #A65C3A;
+  --radius: 0.75rem;
+  --sidebar: #FAF8F4;
+  --sidebar-foreground: #1E1E1E;
+  --sidebar-primary: #103B53;
+  --sidebar-primary-foreground: #FAF8F4;
+  --sidebar-accent: #F1ECE3;
+  --sidebar-accent-foreground: #1E1E1E;
+  --sidebar-border: #E5DFD6;
+  --sidebar-ring: #D89B3C;
+}
+
+.dark {
+  --background: #1E1E1E;
+  --foreground: #FAF8F4;
+  --card: #2a2a2a;
+  --card-foreground: #FAF8F4;
+  --popover: #2a2a2a;
+  --popover-foreground: #FAF8F4;
+  --primary: #F1ECE3;
+  --primary-foreground: #103B53;
+  --secondary: #2a2a2a;
+  --secondary-foreground: #F1ECE3;
+  --muted: #3a3a3a;
+  --muted-foreground: #a0a0a0;
+  --accent: #C84C3D;
+  --accent-foreground: #FAF8F4;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(241, 236, 227, 0.12);
+  --input: #3a3a3a;
+  --ring: #D89B3C;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: #D89B3C;
+  --chart-2: #6E8A8F;
+  --chart-3: #C84C3D;
+  --chart-4: #103B53;
+  --chart-5: #A65C3A;
+  --sidebar: #1E1E1E;
+  --sidebar-foreground: #FAF8F4;
+  --sidebar-primary: #D89B3C;
+  --sidebar-primary-foreground: #FAF8F4;
+  --sidebar-accent: #2a2a2a;
+  --sidebar-accent-foreground: #FAF8F4;
+  --sidebar-border: #3a3a3a;
+  --sidebar-ring: #D89B3C;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+
+  /* Kapatid Design System */
+  --color-mission-red: var(--mission-red);
+  --color-covenant-navy: var(--covenant-navy);
+  --color-field-sand: var(--field-sand);
+  --color-light-linen: var(--light-linen);
+  --color-harvest-gold: var(--harvest-gold);
+  --color-ink: var(--ink);
+  --color-slate-text: var(--slate-text);
+  --color-mist: var(--mist);
+
+  /* Legacy aliases */
+  --color-gold: var(--gold);
+  --color-dust-blue: var(--dust-blue);
+  --color-clay: var(--clay);
+  --color-warm-sand: var(--warm-sand);
+  --color-off-white: var(--off-white);
+  --color-deep-forest: var(--deep-forest);
+  --color-olive: var(--olive);
+  --color-charcoal: var(--charcoal);
+  --color-warm-gray: var(--warm-gray);
+  --color-soft-gray: var(--soft-gray);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    font-size: var(--font-size);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+    font-weight: 700;
+    line-height: 1.13;
+    letter-spacing: -0.025em;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 3vw, 2.75rem);
+    font-weight: 600;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 2vw, 1.875rem);
+    font-weight: 600;
+    line-height: 1.27;
+    letter-spacing: -0.015em;
+  }
+
+  h4 {
+    font-size: 1.375rem;
+    font-weight: 500;
+    line-height: 1.36;
+  }
+
+  label {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  button {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
+
+  ::selection {
+    background-color: rgba(200, 76, 61, 0.15);
+    color: var(--covenant-navy);
+  }
+}
