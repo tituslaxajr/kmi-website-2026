@@ -11,6 +11,7 @@ interface CTABannerProps {
   primaryTo: string;
   secondaryLabel?: string;
   secondaryTo?: string;
+  variant?: "gold" | "navy" | "linen";
 }
 
 export function CTABanner({
@@ -20,9 +21,18 @@ export function CTABanner({
   primaryTo,
   secondaryLabel,
   secondaryTo,
+  variant = "gold",
 }: CTABannerProps) {
+  const bg = variant === "navy" ? "bg-covenant-navy" : variant === "linen" ? "bg-light-linen" : "bg-harvest-gold";
+  const primaryBtn = variant === "linen"
+    ? "bg-covenant-navy text-white shadow-covenant-navy/20"
+    : "bg-white text-harvest-gold shadow-black/8";
+  const primaryBtnHover = variant === "linen" ? "hover:bg-covenant-navy/90" : "hover:shadow-xl";
+  const headingColor = variant === "linen" ? "text-covenant-navy" : "text-white";
+  const subtitleColor = variant === "linen" ? "text-slate-text" : "text-white/70";
+
   return (
-    <section className="relative py-24 lg:py-32 px-6 lg:px-8 bg-harvest-gold overflow-hidden">
+    <section className={`relative py-24 lg:py-32 px-6 lg:px-8 ${bg} overflow-hidden`}>
       {/* Soft radial highlight */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.1),transparent_55%)]" />
 
@@ -38,7 +48,7 @@ export function CTABanner({
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <h2
-            className="text-white"
+            className={headingColor}
             style={{
               fontSize: "clamp(1.625rem, 3.5vw, 2.5rem)",
               letterSpacing: "-0.025em",
@@ -49,7 +59,7 @@ export function CTABanner({
           </h2>
 
           <p
-            className="text-white/70 mt-4 max-w-lg mx-auto"
+            className={`${subtitleColor} mt-4 max-w-lg mx-auto`}
             style={{ fontSize: "1rem", lineHeight: "1.7" }}
           >
             {description}
@@ -60,7 +70,7 @@ export function CTABanner({
               <motion.button
                 whileHover={{ scale: 1.02, y: -1 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-2 bg-white text-harvest-gold rounded-full px-7 py-3.5 cursor-pointer shadow-lg shadow-black/8 hover:shadow-xl transition-shadow duration-300"
+                className={`inline-flex items-center gap-2 ${primaryBtn} rounded-full px-7 py-3.5 cursor-pointer shadow-lg ${primaryBtnHover} transition-shadow duration-300`}
                 style={{
                   fontFamily: "var(--font-heading)",
                   fontSize: "0.9375rem",

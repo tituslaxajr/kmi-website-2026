@@ -216,6 +216,7 @@ export function ImpactPage() {
         primaryTo="/give"
         secondaryLabel="Read Stories"
         secondaryTo="/stories"
+        variant="linen"
       />
     </div>
   );

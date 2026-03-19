@@ -13,14 +13,23 @@ import { StoryCardSkeleton } from "../components/shared/Skeleton";
 
 const categories = ["All", "Community", "Education", "Relief", "Church", "Testimony"];
 
+const PAGE_SIZE = 6;
+
 export function StoriesPage() {
   const [activeFilter, setActiveFilter] = useState("All");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const { stories, loading } = useStories();
   const IMAGES = useImages();
-  const filtered = activeFilter === "All" ? stories : stories.filter((s) => s.category === activeFilter);
+  const filtered = React.useMemo(() => {
+    setVisibleCount(PAGE_SIZE);
+    return activeFilter === "All" ? stories : stories.filter((s) => s.category === activeFilter);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeFilter, stories]);
   const featuredStory = filtered[0];
   const remainingStories = filtered.slice(1);
+  const visibleRemaining = remainingStories.slice(0, visibleCount - 1);
+  const hasMore = visibleCount - 1 < remainingStories.length;
 
   return (
     <div>
@@ -141,11 +150,22 @@ export function StoriesPage() {
                 )}
 
                 {/* Remaining Stories — Masonry-like Grid */}
-                {remainingStories.length > 0 && (
+                {visibleRemaining.length > 0 && (
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-                    {remainingStories.map((story, i) => (
+                    {visibleRemaining.map((story, i) => (
                       <StoryCard key={story.id} story={story} index={i} />
                     ))}
+                  </div>
+                )}
+                {hasMore && (
+                  <div className="text-center mt-10">
+                    <button
+                      onClick={() => setVisibleCount((c) => c + PAGE_SIZE)}
+                      className="px-8 py-3 rounded-full border-[1.5px] border-covenant-navy/15 text-covenant-navy hover:border-covenant-navy hover:bg-covenant-navy hover:text-white transition-all duration-300 cursor-pointer"
+                      style={{ fontSize: "0.875rem", fontWeight: 600 }}
+                    >
+                      Load More Stories
+                    </button>
                   </div>
                 )}
               </motion.div>

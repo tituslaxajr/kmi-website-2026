@@ -128,7 +128,7 @@ export function HomePage() {
           transition={{ delay: 1.5 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
-          <span className="text-white/25" style={{ fontSize: "0.625rem", fontWeight: 500, letterSpacing: "0.15em", textTransform: "uppercase" }}>
+          <span className="text-white/50" style={{ fontSize: "0.625rem", fontWeight: 500, letterSpacing: "0.15em", textTransform: "uppercase" }}>
             Scroll
           </span>
           <motion.div
@@ -415,23 +415,25 @@ export function HomePage() {
               />
             ) : (
               <div
-                className="w-full h-full cursor-pointer"
-                onClick={() => {
-                  if (videoId) {
-                    setVideoPlaying(true);
-                  }
-                }}
+                className={`w-full h-full ${videoId ? "cursor-pointer" : "cursor-default"}`}
+                onClick={() => { if (videoId) setVideoPlaying(true); }}
               >
-                {/* Use YouTube thumbnail if a video ID exists, otherwise fallback to gathering image */}
                 <img
                   src={videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : IMAGES.gathering}
                   alt="Documentary preview"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-covenant-navy/60 via-black/10 to-transparent flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-harvest-gold/90 flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-xl shadow-harvest-gold/25">
-                    <Play size={24} className="text-white ml-0.5" fill="currentColor" />
-                  </div>
+                  {videoId ? (
+                    <div className="w-16 h-16 rounded-full bg-harvest-gold/90 flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-xl shadow-harvest-gold/25">
+                      <Play size={24} className="text-white ml-0.5" fill="currentColor" />
+                    </div>
+                  ) : (
+                    <div className="bg-black/40 backdrop-blur-sm rounded-xl px-5 py-3 text-center">
+                      <p className="text-white/80" style={{ fontSize: "0.875rem", fontWeight: 600 }}>Video coming soon</p>
+                      <p className="text-white/40 mt-0.5" style={{ fontSize: "0.75rem" }}>Check back later for field footage</p>
+                    </div>
+                  )}
                 </div>
               </div>
             )}

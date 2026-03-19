@@ -543,6 +543,7 @@ export function AboutPage() {
         primaryTo="/give"
         secondaryLabel="Contact Us"
         secondaryTo="/contact"
+        variant="navy"
       />
     </div>
   );

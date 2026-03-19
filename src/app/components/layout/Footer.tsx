@@ -124,15 +124,19 @@ export function Footer() {
             </h4>
             <div className="space-y-3.5">
               {[
-                { icon: MapPin, text: "4 Acacia St., Silanganan Subd. Llano, Caloocan City, Philippines" },
-                { icon: Mail, text: "inquiries@kapatidministry.org" },
-                { icon: Phone, text: "+63 999 516 1932" },
-              ].map(({ icon: Icon, text }) => (
+                { icon: MapPin, text: "4 Acacia St., Silanganan Subd. Llano, Caloocan City, Philippines", href: null },
+                { icon: Mail, text: "inquiries@kapatidministry.org", href: "mailto:inquiries@kapatidministry.org" },
+                { icon: Phone, text: "+63 999 516 1932", href: "tel:+639995161932" },
+              ].map(({ icon: Icon, text, href }) => (
                 <div key={text} className="flex items-center gap-2.5 text-white/40" style={{ fontSize: "0.8125rem" }}>
                   <div className="w-7 h-7 rounded-lg bg-white/4 flex items-center justify-center shrink-0">
                     <Icon size={12} className="text-harvest-gold/60" />
                   </div>
-                  <span>{text}</span>
+                  {href ? (
+                    <a href={href} className="hover:text-white transition-colors duration-200">{text}</a>
+                  ) : (
+                    <span>{text}</span>
+                  )}
                 </div>
               ))}
             </div>

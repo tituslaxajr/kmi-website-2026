@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
+import { BackToTop } from "../shared/BackToTop";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -29,6 +30,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </AnimatePresence>
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 }

@@ -174,13 +174,13 @@ export function ContactPage() {
                 </h3>
                 <div className="space-y-4 relative z-10">
                   {[
-                    { icon: Mail, label: "Email", value: "inquiries@kapatidministry.org" },
-                    { icon: Mail, label: "Alt Email", value: "kapatidministry@gmail.com" },
-                    { icon: Phone, label: "Phone", value: "+63 999 516 1932" },
-                    { icon: Phone, label: "Alt Phone", value: "+63 909 476 2692" },
-                    { icon: MapPin, label: "Office", value: "4 Acacia St., Silanganan Subd. Llano, Caloocan City, Philippines" },
-                    { icon: Clock, label: "Hours", value: "Mon-Fri, 9am-5pm PHT" },
-                  ].map(({ icon: Icon, label, value }) => (
+                    { icon: Mail, label: "Email", value: "inquiries@kapatidministry.org", href: "mailto:inquiries@kapatidministry.org" },
+                    { icon: Mail, label: "Alt Email", value: "kapatidministry@gmail.com", href: "mailto:kapatidministry@gmail.com" },
+                    { icon: Phone, label: "Phone", value: "+63 999 516 1932", href: "tel:+639995161932" },
+                    { icon: Phone, label: "Alt Phone", value: "+63 909 476 2692", href: "tel:+639094762692" },
+                    { icon: MapPin, label: "Office", value: "4 Acacia St., Silanganan Subd. Llano, Caloocan City, Philippines", href: null },
+                    { icon: Clock, label: "Hours", value: "Mon-Fri, 9am-5pm PHT", href: null },
+                  ].map(({ icon: Icon, label, value, href }) => (
                     <div key={label} className="flex items-center gap-3">
                       <div className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
                         <Icon size={14} className="text-harvest-gold/70" strokeWidth={2} />
@@ -189,7 +189,11 @@ export function ContactPage() {
                         <p className="text-white/35" style={{ fontSize: "0.625rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em" }}>
                           {label}
                         </p>
-                        <p className="text-white/90" style={{ fontSize: "0.8125rem", fontWeight: 500 }}>{value}</p>
+                        {href ? (
+                          <a href={href} className="text-white/90 hover:text-harvest-gold transition-colors duration-200" style={{ fontSize: "0.8125rem", fontWeight: 500 }}>{value}</a>
+                        ) : (
+                          <p className="text-white/90" style={{ fontSize: "0.8125rem", fontWeight: 500 }}>{value}</p>
+                        )}
                       </div>
                     </div>
                   ))}
@@ -243,6 +247,7 @@ export function ContactPage() {
         primaryTo="/give"
         secondaryLabel="See Our Impact"
         secondaryTo="/impact"
+        variant="linen"
       />
     </div>
   );

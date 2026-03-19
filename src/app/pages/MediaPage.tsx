@@ -188,6 +188,7 @@ export function MediaPage() {
         primaryTo="/stories"
         secondaryLabel="Support the Work"
         secondaryTo="/give"
+        variant="navy"
       />
     </div>
   );

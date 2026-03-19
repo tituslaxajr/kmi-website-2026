@@ -479,6 +479,7 @@ export function MinistryDetailPage() {
         primaryTo="/give"
         secondaryLabel="Contact Us"
         secondaryTo="/contact"
+        variant="navy"
       />
     </div>
   );

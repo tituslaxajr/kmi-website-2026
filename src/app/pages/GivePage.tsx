@@ -130,8 +130,18 @@ export function GivePage() {
     });
   };
 
+  const [amountError, setAmountError] = useState<string | null>(null);
+
   const handleGive = () => {
-    if (!activeAmount || activeAmount <= 0) return;
+    if (!activeAmount || activeAmount <= 0) {
+      setAmountError("Please enter or select a gift amount.");
+      return;
+    }
+    if (activeAmount < 50) {
+      setAmountError("Minimum gift amount is ₱50.");
+      return;
+    }
+    setAmountError(null);
     setShowModal(true);
   };
 
@@ -330,6 +340,21 @@ export function GivePage() {
                 </button>
               ))}
             </div>
+
+            {/* Monthly notice */}
+            {frequency === "monthly" && (
+              <div className="flex items-start gap-2.5 bg-harvest-gold/8 border border-harvest-gold/20 rounded-xl px-4 py-3 mb-4">
+                <Info size={14} className="text-harvest-gold shrink-0 mt-0.5" />
+                <p className="text-covenant-navy/80" style={{ fontSize: "0.8125rem", lineHeight: "1.5" }}>
+                  Monthly giving is processed manually. After your first gift, we'll reach out to set up a recurring arrangement.
+                </p>
+              </div>
+            )}
+
+            {/* Amount error */}
+            {amountError && (
+              <p className="text-mission-red text-sm mb-2">{amountError}</p>
+            )}
 
             {/* Submit */}
             <Button

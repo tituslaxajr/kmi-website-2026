@@ -1,6 +1,7 @@
 "use client"
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "motion/react";
+import { Search } from "lucide-react";
 import { Church, HandHeart, Users } from "lucide-react";
 import { scriptures } from "../data/mockData";
 import { usePartners } from "../hooks/useData";
@@ -13,7 +14,15 @@ import { PartnerCardSkeleton } from "../components/shared/Skeleton";
 
 export function PartnersPage() {
   const { partners, loading } = usePartners();
+  const [search, setSearch] = useState("");
   const IMAGES = useImages();
+  const filtered = search.trim()
+    ? partners.filter((p) =>
+        p.church_name?.toLowerCase().includes(search.toLowerCase()) ||
+        p.pastor_name?.toLowerCase().includes(search.toLowerCase()) ||
+        p.location?.toLowerCase().includes(search.toLowerCase())
+      )
+    : partners;
   return (
     <div>
       {/* Hero */}
@@ -93,12 +102,31 @@ export function PartnersPage() {
             title="Meet Our Church Partners"
             subtitle="Each partnership is built on trust, prayer, and a shared commitment to transformation."
           />
+          {/* Search */}
+          <div className="relative max-w-sm mb-8">
+            <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-text/40" />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search by church, pastor, or location..."
+              className="w-full pl-9 pr-4 py-2.5 rounded-xl bg-white border border-mist/40 text-ink placeholder:text-slate-text/40 focus:outline-none focus:ring-2 focus:ring-harvest-gold/30 focus:border-harvest-gold/20 transition-all"
+              style={{ fontSize: "0.875rem" }}
+            />
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {loading
               ? Array.from({ length: 8 }).map((_, i) => <PartnerCardSkeleton key={i} />)
-              : partners.map((partner, i) => (
+              : filtered.length > 0
+              ? filtered.map((partner, i) => (
                   <PartnerCard key={partner.id} partner={partner} index={i} />
-                ))}
+                ))
+              : (
+                <div className="col-span-full text-center py-16 text-slate-text">
+                  <p style={{ fontSize: "0.9375rem" }}>No partners found for "{search}"</p>
+                  <button onClick={() => setSearch("")} className="mt-3 text-harvest-gold hover:underline cursor-pointer" style={{ fontSize: "0.875rem" }}>Clear search</button>
+                </div>
+              )}
           </div>
         </div>
       </section>
