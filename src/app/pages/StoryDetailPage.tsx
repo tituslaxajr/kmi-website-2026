@@ -119,8 +119,8 @@ function StoryDetailContent({ story, stories, partners, slug }: { story: any; st
   const contentParagraphs = !contentBlocks && typeof story.content === "string"
     ? story.content
         .split(/\n\n|\.\.\.|\u2026/)
-        .map((p) => p.trim())
-        .filter((p) => p.length > 20)
+        .map((p: string) => p.trim())
+        .filter((p: string) => p.length > 20)
     : [];
 
   const handleShare = () => {
@@ -326,7 +326,7 @@ function StoryDetailContent({ story, stories, partners, slug }: { story: any; st
               /* Legacy plain text content */
               <div className="space-y-6">
                 {contentParagraphs.length > 0 ? (
-                  contentParagraphs.map((para, i) => (
+                  contentParagraphs.map((para: string, i: number) => (
                     <div key={i}>
                       <p
                         className="text-ink/80"

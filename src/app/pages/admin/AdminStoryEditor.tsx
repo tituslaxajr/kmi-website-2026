@@ -662,9 +662,8 @@ export function AdminStoryEditor() {
 
     // Navigate back to admin stories list after a brief delay so user sees the save confirmation
     hasUnsavedChanges.current = false;
-    setBlockerReady(false);
     setTimeout(() => router.push("/admin/stories"), 1200);
-  }, [title, blocks, getPayload, doSave, sendNewsletterFlag, navigate]);
+  }, [title, blocks, getPayload, doSave, sendNewsletterFlag]);
 
   // ─── Slug auto-gen ──────────────────────────────────────────────────────
   const handleTitleChange = (newTitle: string) => {

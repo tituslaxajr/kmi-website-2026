@@ -39,6 +39,8 @@
     "src/app/App.tsx",
     "src/app/routes.ts",
     "src/main.tsx",
-    "vite.config.ts"
+    "vite.config.ts",
+    "src/imports/**/*",
+    "supabase/**/*"
   ]
 }
