@@ -46,6 +46,7 @@ export function StoryCard({ story, index = 0, variant = "default" }: StoryCardPr
             <img
               src={story.featured_image}
               alt={story.title}
+              loading="lazy"
               className="w-full h-full object-cover transition-transform duration-[900ms] group-hover:scale-[1.04]"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
@@ -183,6 +184,7 @@ export function StoryCard({ story, index = 0, variant = "default" }: StoryCardPr
             <img
               src={story.featured_image}
               alt={story.title}
+              loading="lazy"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
             />
             {/* Subtle gradient at bottom edge for smooth transition */}

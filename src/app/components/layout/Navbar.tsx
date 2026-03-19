@@ -142,7 +142,7 @@ function DesktopDropdown({
                       <div>
                         <span
                           className="block text-covenant-navy group-hover/item:text-covenant-navy transition-colors"
-                          style={{ fontSize: "0.8125rem", fontWeight: 650 }}
+                          style={{ fontSize: "0.8125rem", fontWeight: 600 }}
                         >
                           {child.label}
                         </span>

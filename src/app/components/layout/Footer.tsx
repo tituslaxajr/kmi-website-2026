@@ -9,7 +9,7 @@ export function Footer() {
   return (
     <footer className="bg-covenant-navy text-white">
       <div className="max-w-6xl mx-auto px-6 lg:px-8 py-14 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-14">
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="mb-4">
@@ -148,7 +148,7 @@ export function Footer() {
           className="border-t border-white/5 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/20"
           style={{ fontSize: "0.75rem" }}
         >
-          <p>&copy; 2026 Kapatid Ministry. All glory to God.</p>
+          <p>&copy; {new Date().getFullYear()} Kapatid Ministry. All glory to God.</p>
           <p>
             Built with faith &middot; Powered by community
           </p>

@@ -12,12 +12,12 @@ export function Button({ variant = "primary", size = "md", children, className =
 
   const variants = {
     primary:
-      "bg-harvest-gold text-white hover:bg-[#c88e30] hover:shadow-lg hover:shadow-harvest-gold/20 hover:-translate-y-0.5 active:translate-y-0",
+      "bg-harvest-gold text-white hover:bg-[#c88e30] hover:shadow-lg hover:shadow-harvest-gold/20 hover:-translate-y-0.5 active:translate-y-0 active:bg-[#c88e30]",
     secondary:
-      "bg-transparent border-[1.5px] border-harvest-gold/50 text-harvest-gold hover:border-harvest-gold hover:bg-harvest-gold/5 hover:-translate-y-0.5",
+      "bg-transparent border-[1.5px] border-harvest-gold/50 text-harvest-gold hover:border-harvest-gold hover:bg-harvest-gold/5 hover:-translate-y-0.5 active:bg-harvest-gold/10",
     outline:
-      "bg-transparent border-[1.5px] border-covenant-navy/15 text-covenant-navy hover:border-covenant-navy hover:bg-covenant-navy hover:text-white hover:-translate-y-0.5",
-    ghost: "text-covenant-navy hover:bg-field-sand/70",
+      "bg-transparent border-[1.5px] border-covenant-navy/15 text-covenant-navy hover:border-covenant-navy hover:bg-covenant-navy hover:text-white hover:-translate-y-0.5 active:bg-covenant-navy/10",
+    ghost: "text-covenant-navy hover:bg-field-sand/70 active:bg-field-sand",
   };
 
   const sizes = {
