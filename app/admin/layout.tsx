@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import Link from 'next/link'
 import {
@@ -26,6 +26,7 @@ import {
   ShieldCheck,
 } from 'lucide-react'
 import { useAuth } from '../../src/app/context/AuthContext'
+import AdminSearchModal from '../../src/app/components/admin/AdminSearchModal'
 const logoDarkImg = '/logo.png'
 
 interface NavItem {
@@ -101,6 +102,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const router = useRouter()
   const pathname = usePathname()
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false)
   const isLoginPage = pathname === '/admin/login'
 
   useEffect(() => {
@@ -112,6 +114,18 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   useEffect(() => {
     setSidebarOpen(false)
   }, [pathname])
+
+  // Open search on "/" keypress
+  useEffect(() => {
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === '/' && document.activeElement?.tagName !== 'INPUT' && document.activeElement?.tagName !== 'TEXTAREA') {
+        e.preventDefault()
+        setSearchOpen(true)
+      }
+    }
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+  }, [])
 
   // Login page renders standalone without the admin shell
   if (isLoginPage) {
@@ -259,13 +273,16 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <span className="text-covenant-navy font-semibold">{pageTitle}</span>
           </div>
           <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-white rounded-lg border border-mist/30">
+            <button
+              onClick={() => setSearchOpen(true)}
+              className="flex items-center gap-2 px-3 py-1.5 bg-white rounded-lg border border-mist/30 hover:border-covenant-navy/30 transition-colors cursor-pointer"
+            >
               <Search size={14} className="text-slate-text/30" />
               <span className="text-slate-text/30" style={{ fontSize: '0.75rem' }}>Quick search...</span>
               <kbd className="ml-4 bg-field-sand text-slate-text/40 px-1.5 py-0.5 rounded" style={{ fontFamily: 'monospace', fontSize: '0.5625rem' }}>
                 /
               </kbd>
-            </div>
+            </button>
           </div>
         </div>
 
@@ -295,6 +312,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           {children}
         </main>
       </div>
+
+      <AdminSearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
     </div>
   )
 }
