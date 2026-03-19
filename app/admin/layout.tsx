@@ -26,7 +26,7 @@ import {
   ShieldCheck,
 } from 'lucide-react'
 import { useAuth } from '../../src/app/context/AuthContext'
-import logoDarkImg from 'figma:asset/2181cbf885c15a0f7b2cc90c42e55719993fcfa0.png'
+const logoDarkImg = '/logo.png'
 
 interface NavItem {
   label: string
